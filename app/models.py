@@ -52,9 +52,21 @@ class Player(models.Model):
     #postion
     position = models.CharField(max_length=100)
     # batting average
-    batting_average = models.FloatField
+    batting_average = models.FloatField(default=0.0)
     def __str__(self):
         return self.name
 
     
-
+# 5. lets make a class for teams
+class Team(models.Model):
+    #name
+    name = models.CharField(max_length=100)
+    # city
+    city = models.CharField(max_length=100)
+    # manager
+    manager = models.CharField(max_length=100)
+    # League can be "AL" (American League) or "NL" (National League)
+    league = models.CharField(max_length=2)
+    def __str__(self):
+        # When shown in admin, it will appear as "New York Yankees"
+        return f"{self.city} {self.name}"

@@ -32,3 +32,4 @@ def baseball_players(request):
     }
     #this tells django to use baseball_players.html and pass it to the context dictonary to the template has players to display
     return render(request, "baseball_page.html", context)
+
