@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Student
+from .models import Player
 # Create your views here.
 def index(request): #function names index that is called when a user visits my hompage
     #1. this checks ifthe url has a query paramter example: http://127.0.0.1:8000/?q=student
@@ -21,3 +22,13 @@ def index(request): #function names index that is called when a user visits my h
     #4. this tells django to use index.html and pass it to the context dictonary to the template has students to display
     return render(request, "index.html", context)
 
+#lets make a view so we can see the baseball players
+def baseball_players(request):
+    # fetch the players and from the database
+    players = Player.objects.all()
+    # pass the to the template
+    context = {
+        "players" : players,
+    }
+    #this tells django to use baseball_players.html and pass it to the context dictonary to the template has players to display
+    return render(request, "baseball_page.html", context)

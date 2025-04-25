@@ -45,3 +45,16 @@ class Student(models.Model):
         return self.name
     
 
+# 4. lets make a class to represent mlb indiviual players
+class Player(models.Model):
+    # name of player
+    name = models.CharField(max_length=100)
+    #postion
+    position = models.CharField(max_length=100)
+    # batting average
+    batting_average = models.FloatField
+    def __str__(self):
+        return self.name
+
+    
+
