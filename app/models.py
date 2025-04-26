@@ -68,5 +68,5 @@ class Team(models.Model):
     # League can be "AL" (American League) or "NL" (National League)
     league = models.CharField(max_length=2)
     def __str__(self):
-        # When shown in admin, it will appear as "New York Yankees"
+        # When shown in admin, it will appear as "New York Yankees" so name then city
         return f"{self.city} {self.name}"
