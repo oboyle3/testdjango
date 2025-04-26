@@ -53,6 +53,14 @@ class Player(models.Model):
     position = models.CharField(max_length=100)
     # batting average
     batting_average = models.FloatField(default=0.0)
+    #
+    # lets add make a relationship between a player and team so a player can be asigned to only one team
+    team = models.ForeignKey('Team', on_delete=models.CASCADE, related_name='players', null=True, blank=True)
+    #ForeignKey('Team'): Links the player to a team.
+
+    #on_delete=models.CASCADE: If a team is deleted, all its players get deleted too.
+
+    #related_name='players': Lets you do team.players.all() to get all players on a team.
     def __str__(self):
         return self.name
 
