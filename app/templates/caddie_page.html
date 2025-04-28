@@ -13,7 +13,7 @@
     <title>Welcome</title>
     <style>
       body {
-        background-color: #d6ecff; /* light blue */
+        background-color: #ddd6ff; /* light blue */
         font-family: 'Poppins', sans-serif;
         padding-top: 50px;
       }
@@ -23,35 +23,36 @@
       .header-title {
         font-size: 3rem;
         font-weight: 600;
-        color: #004085;
+        color: #008576;
       }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="text-center mb-5">
-        <h1 class="header-title">Hello, World!</h1>
-        <p class="lead text-muted">Here is your list</p>
+        <h1 class="header-title">Caddie List Screen</h1>
+        <p class="lead text-muted">Here is your list of caddies in the Caddie model</p>
         <!-- This is the search function we are adding -->
         <form method="get" class="form-inline justify-content-center mb-4">
-          <input type="text" name="q" class="form-control mr-2" placeholder="Search students..." value="{{ request.GET.q }}">
+          <input type="text" name="q" class="form-control mr-2" placeholder="Search players..." value="{{ request.GET.q }}">
           <button type="submit" class="btn btn-primary">Search</button>
         </form>
         <!-- This is the search function we are adding -->
-        <a href="{% url 'baseball_players' %}">baseball page html</a><br> <br>
-        <a href="{% url 'player-list' %}">api </a> <br> <br>
-        <a href="{% url 'caddies' %}">Caddie list view </a> <br> <br>
+       
+        <a href="{% url 'index' %}">index html</a><br><br>
+        <a href="{% url 'player-list' %}">api page </a><br> <br>
+        <a href="{% url 'baseball_players' %}">baseball page html</a><br>
+        
         
       </div>
 
       <div class="row">
-        {% for x in obj %}
+        {% for x in caddies %}
           <div class="col-md-6 offset-md-3">
             <div class="card shadow-sm">
               <div class="card-body">
                 <h5 class="card-title">{{ x.name }}</h5>
-                <p class="card-text">{{ x.des }}</p>
-                <p class="card-text">{{ x.course }}</p>
+                <p class="card-text">{{ x.bib }}</p>
               </div>
             </div>
           </div>

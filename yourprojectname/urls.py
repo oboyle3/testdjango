@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from app.views import index
 from app import views
+from app.views import PlayerListAPIView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
     path('players/', views.baseball_players, name='baseball_players'),
+    path('api/players/', PlayerListAPIView.as_view(), name='player-list'),
+    path('caddies/', views.caddies, name='caddies'),
 ]
