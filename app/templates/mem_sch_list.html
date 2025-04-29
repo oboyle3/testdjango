@@ -45,21 +45,21 @@
         <a href="{% url 'members' %}">member page html</a> |
         
         
-      </div>
+      
 
-      <div class="row">
-        {% for x in tee_times %}
-          <div class="col-md-6 offset-md-3">
-            <div class="card shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title">{{ x.member }}</h5>
-                <p class="card-text">{{ x.timeslot }}</p>
-               
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
+        <div class="row">
+            {% for x in tee_times %}
+              <div class="col-md-6 offset-md-3">
+                <div class="card shadow-sm">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ x.member }}</h5>
+                    <p class="card-text">{{ x.timeslot }}</p> 
+                  </div> <!-- End card-body -->
+                </div> <!-- End card -->
+              </div> <!-- End col -->
+            {% endfor %}
+          </div> <!-- End row -->
+      
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
