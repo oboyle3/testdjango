@@ -87,4 +87,15 @@ class Caddie(models.Model):
     bib_color = models.CharField(max_length=100)
     def __str__(self):
         return self.name
+    
+
+# lets make a class for members at the club
+class Member(models.Model):
+    #name
+    name = models.CharField(max_length=100)
+    # handicap
+    handicap = models.FloatField(default=0.0)
+    def __str__(self):
+        return self.name
+    
 

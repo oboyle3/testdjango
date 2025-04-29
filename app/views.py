@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Student
+from .models import Member, Student
 from .models import Player
 from .models import Caddie
 from rest_framework import generics
@@ -57,3 +57,15 @@ def caddies(request):
     }
     #this tells django to use cadddie_players.html and pass it to the context dictonary to the template has caddies to display
     return render(request, "caddie_page.html", context)
+
+
+#lets make a view so we can see the members at our clun
+def members_view(request):
+    # fetch the members  and from the database
+    members = Member.objects.all()
+    # pass the to the template
+    context = {
+        "members" : members,
+    }
+    #this tells django to use cadddie_players.html and pass it to the context dictonary to the template has caddies to display
+    return render(request, "members_page.html", context)
