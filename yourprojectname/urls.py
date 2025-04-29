@@ -27,4 +27,5 @@ urlpatterns = [
     path('api/players/', PlayerListAPIView.as_view(), name='player-list'),
     path('caddies/', views.caddies, name='caddies'),
     path('members/', views.members_view, name='members'),
+    path('members_tee_times_view/', views.members_tee_times_view, name='members_tee_times_view'),
 ]

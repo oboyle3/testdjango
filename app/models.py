@@ -99,3 +99,18 @@ class Member(models.Model):
         return self.name
     
 
+# lets  create a model for time slots
+class Timeslot(models.Model):
+    # times
+    times = models.CharField(max_length=100)
+    def __str__(self):
+        return self.times
+
+# lets connect a member to a timeslot, this is like book keeping
+class MemberTeeTime(models.Model):
+    # lets connect to which member
+    member = models.ForeignKey(Member, on_delete=models.CASCADE)
+    # lets connect to a timeslot
+    timeslot = models.ForeignKey(Timeslot, on_delete=models.CASCADE)
+    def __str__(self):
+        return f"{self.member.name} - {self.timeslot.times}"

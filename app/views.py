@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Member, Student
+from .models import Member, MemberTeeTime, Student
 from .models import Player
 from .models import Caddie
 from rest_framework import generics
@@ -69,3 +69,15 @@ def members_view(request):
     }
     #this tells django to use cadddie_players.html and pass it to the context dictonary to the template has caddies to display
     return render(request, "members_page.html", context)
+
+# lets make a view so we can see members and their tee times
+
+def members_tee_times_view(request):
+    # lets get all of the member tee times from the database
+    member_tee_times = MemberTeeTime.objects.all()
+    #In Django, a context is just a Python dictionary ({}) that gets passed into your template when you render it.
+    #It contains the data that your HTML page (template) can use.
+    context = {
+        "tee_times": member_tee_times,
+    }
+    return render(request, "mem_sch_list.html", context)
