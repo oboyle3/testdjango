@@ -95,6 +95,8 @@ class Member(models.Model):
     name = models.CharField(max_length=100)
     # handicap
     handicap = models.FloatField(default=0.0)
+    # assign a caddie, this means a caddie can be assigheed to multiple members
+    caddie = models.ForeignKey(Caddie, on_delete=models.SET_NULL, null=True, blank=True)
     def __str__(self):
         return self.name
     
