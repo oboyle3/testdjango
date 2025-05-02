@@ -116,3 +116,11 @@ class MemberTeeTime(models.Model):
     timeslot = models.ForeignKey(Timeslot, on_delete=models.CASCADE)
     def __str__(self):
         return f"{self.member.name} - {self.timeslot.times}"
+    
+
+# lets make a class our courses
+class courses_club(models.Model):
+    # name of course
+    name_of_course = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name_of_course

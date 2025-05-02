@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Member, MemberTeeTime, Student
+from .models import Courses, Member, MemberTeeTime, Student
 from .models import Player
 from .models import Caddie
 from rest_framework import generics
@@ -81,3 +81,17 @@ def members_tee_times_view(request):
         "tee_times": member_tee_times,
     }
     return render(request, "mem_sch_list.html", context)
+
+
+
+
+#lets make a view so we can see the golf cources
+def cources(request):
+    # fetch the cources  and from the database
+    Courses = Courses.objects.all()
+    # pass the to the template
+    context = {
+        "Courses" : Courses,
+    }
+    #this tells django to use cadddie_players.html and pass it to the context dictonary to the template has caddies to display
+    return render(request, "courses_page.html", context)

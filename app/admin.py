@@ -10,7 +10,7 @@ from .models import Caddie
 from .models import Member
 from .models import Timeslot
 from .models import MemberTeeTime
-
+from .models import Courses
 admin.site.register(Student)
 admin.site.register(Course)
 admin.site.register(Teacher)
@@ -20,3 +20,4 @@ admin.site.register(Caddie)
 admin.site.register(Member)
 admin.site.register(Timeslot)
 admin.site.register(MemberTeeTime)
+admin.site.register(Courses)
