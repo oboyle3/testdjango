@@ -126,6 +126,6 @@ class courses_club(models.Model):
         return self.name_of_course
 
 class test_class(models.Model):
-    test = models.CharField(max_length=100)
+    test = models.CharField(max_length=20)
     def __str__(self):
         return self.name
